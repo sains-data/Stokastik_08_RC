@@ -1,0 +1,26 @@
+---
+title: "Untitled"
+author: "Nawwaf Abdurrahman"
+date: "2025-11-20"
+output: pdf_document
+---
+
+## Import Lib & Explorasi Data
+
+```{r}
+library(readxl)
+library(dplyr)
+library(lubridate)
+library(hms)
+
+day_1 <- read_excel("data.xlsx", sheet = "Day 1")
+day_2 <- read_excel("data.xlsx", sheet = "Day 2")
+day_3 <- read_excel("data.xlsx", sheet = "Day 3")
+```
+
+```{r}
+#Show Data
+day_1
+day_2
+day_3
+```
