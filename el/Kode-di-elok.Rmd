@@ -1,0 +1,154 @@
+---
+title: "Untitled"
+author: "Elok Fiola"
+date: "2025-11-21"
+output: pdf_document
+---
+
+```{r}
+library(readxl)
+
+data1 <- read_excel("C:/Users/elokf/Downloads/data.xlsx", sheet = "Day 1")
+data2 <- read_excel("C:/Users/elokf/Downloads/data.xlsx", sheet = "Day 2")
+data3 <- read_excel("C:/Users/elokf/Downloads/data.xlsx", sheet = "Day 3")
+
+
+```
+
+```{r}
+data1
+data2
+data3
+```
+
+### Ngitung laju kedatangan pelanggan pertalit 
+
+```{r}
+library(readxl)
+library(dplyr)
+library(lubridate)
+
+# ------------------------
+# 2. FUNGSI MENGHITUNG λ DAN μ
+# ------------------------
+hitung_mm1 <- function(df) {
+  
+  df <- df %>%
+    mutate(
+      Antrian  = ymd_hms(Antrian),
+      Dilayani = ymd_hms(Dilayani),
+      Selesai  = ymd_hms(Selesai)
+    ) %>%
+    arrange(Antrian) %>%
+    mutate(
+      interarrival = as.numeric(difftime(Antrian, lag(Antrian), units = "secs")),
+      servicetime  = as.numeric(difftime(Selesai, Dilayani, units = "secs"))
+    )
+  
+  # Rata-rata interarrival dan service time
+  interarrival_mean <- mean(df$interarrival[-1], na.rm = TRUE)
+  servicetime_mean  <- mean(df$servicetime,     na.rm = TRUE)
+  
+  # Laju kedatangan dan pelayanan
+  lambda <- 1 / interarrival_mean
+  mu     <- 1 / servicetime_mean
+  
+  # Utilisasi
+  rho <- lambda / mu
+  
+  return(list(
+    lambda = lambda,
+    mu = mu,
+    rho = rho,
+    interarrival_mean = interarrival_mean,
+    servicetime_mean = servicetime_mean
+  ))
+}
+
+
+```
+
+```{r}
+# ------------------------
+# 3. HITUNG UNTUK MASING-MASING HARI
+# ------------------------
+hasil_day1 <- hitung_mm1(data1)
+hasil_day2 <- hitung_mm1(data2)
+hasil_day3 <- hitung_mm1(data3)
+
+# ------------------------
+# 4. GABUNG KETIGA HARI
+# ------------------------
+data_all <- bind_rows(data1, data2, data3)
+
+hasil_all <- hitung_mm1(data_all)
+
+# ------------------------
+# 5. TAMPILKAN HASIL
+# ------------------------
+hasil_day1
+hasil_day2
+hasil_day3
+hasil_all   # λ & μ gabungan semua hari
+```
+
+```{r}
+# Fungsi untuk menghitung metrik M/M/1
+mm1_metrics <- function(lambda, mu) {
+  
+  rho <- lambda / mu                     # Utilisasi server
+  Lq <- (rho^2) / (1 - rho)              # Mean number in queue
+  Wq <- Lq / lambda                      # Mean time in queue
+  Ls <- rho                              # Mean number in service
+  Ws <- 1 / mu                           # Mean service time
+  P0 <- 1 - rho                          # Prob server idle
+  P_busy <- rho                          # Prob server busy
+  L_total <- Lq + Ls                     # Mean number in system (station)
+  W_total <- Wq + Ws                     # Mean time in system (station)
+  
+  return(list(
+    lambda = lambda,
+    mu = mu,
+    rho = rho,
+    Lq = Lq,
+    Wq = Wq,
+    Ls = Ls,
+    Ws = Ws,
+    P0 = P0,
+    P_busy = P_busy,
+    L_total = L_total,
+    W_total = W_total
+  ))
+}
+```
+
+```{r}
+library(ggplot2)
+library(tidyr)
+
+
+# ================================
+# 4. SIAPKAN DATAFRAME UNTUK PLOT
+# ================================
+df_plot <- data.frame(
+  Day = c("Day 1", "Day 2", "Day 3"),
+  ArrivalRate = c(hasil_day1$lambda, hasil_day2$lambda, hasil_day3$lambda),
+  ServiceRate = c(hasil_day1$mu,     hasil_day2$mu,     hasil_day3$mu)
+) %>% 
+  pivot_longer(cols = c("ArrivalRate", "ServiceRate"),
+               names_to = "Type",
+               values_to = "Rate")
+
+# ================================
+# 5. PLOT BAR CHART λ & μ
+# ================================
+ggplot(df_plot, aes(x = Day, y = Rate, fill = Type)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Arrival Rate (λ) dan Service Rate (μ) per Hari",
+    x = "Hari",
+    y = "Rate (per detik)",
+    fill = "Tipe"
+  ) +
+  theme_minimal(base_size = 14)
+```
