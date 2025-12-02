@@ -152,7 +152,7 @@ Notebook: **Kode_Stokastik_08_RC.ipynb**
 ```bash
 sudo apt-get install -y libssl-dev libcurl4-gnutls-dev libxml2-dev
 R -e "install.packages('IRkernel'); IRkernel::installspec(user = TRUE)"
-```bash
+```
 
 Ubah runtime: Runtime → Change runtime type → R
 
