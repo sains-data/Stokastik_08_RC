@@ -26,7 +26,7 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
 
 ## Metodologi
 
-1. **Normalisasi Waktu**
+### **Normalisasi Waktu**
    Data waktu pada setiap sheet tidak memuat tanggal sehingga diberikan asumsi tanggal sebagai berikut:
    - *day_1*: 11 November 2025  
    - *day_2*: 12 November 2025  
