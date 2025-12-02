@@ -13,11 +13,11 @@ Repositori ini berisi analisis terkait perhitungan metrik antrian menggunakan da
   - `Dilayani` (waktu mulai diproses)
   - `Selesai` (waktu layanan selesai)
 
-- **main.Rmd**  
-  Dokumen analisis dalam bentuk R Markdown. Berisi:
+- **Kode_Stokastik_08_RC.ipynb**  
+  Dokumen analisis dalam bentuk R. Berisi:
   - Pembersihan dan transformasi data
   - Konversi timestamp berdasarkan tanggal observasi
-  - Perhitungan metrik antrian (λ, μ, ρ, Lq, Wq, W, L)
+  - Perhitungan metrik antrian (λ, μ, ρ, Lq, Ls, Ws, Wq)
   - Interpretasi hasil setiap hari
   - Visualisasi pendukung bila diperlukan
 
@@ -133,17 +133,39 @@ Proses penelitian berakhir setelah seluruh tahapan tuntas.
   - Penambahan **1 server** sudah cukup untuk menstabilkan sistem.
   - Faktor eksternal seperti jalur motor perlu dipertimbangkan karena tidak tercakup dalam model klasik.
 
-## Cara Menjalankan
+## Cara Menjalankan (Google Colab — R)
 
-1. Pastikan Anda memiliki R dan paket berikut:
-   - `tidyverse`
-   - `readxl`
-   - `lubridate`
-   - Paket tambahan lain yang digunakan dalam *main.Rmd* bila ada.
+Notebook: **Kode_Stokastik_08_RC.ipynb**
 
-2. Buka file `main.Rmd` menggunakan RStudio.
+1. Buka Google Colab
+   
+   https://colab.research.google.com/
+   
+2. Upload Notebook
 
-3. Jalankan seluruh chunk atau lakukan knit ke HTML/PDF untuk mendapatkan laporan lengkap.
+   File → Upload Notebook → Kode_Stokastik_08_RC.ipynb
+
+3. Aktifkan Kernel R
+
+   Jalankan di sel pertama:
+
+```bash
+sudo apt-get install -y libssl-dev libcurl4-gnutls-dev libxml2-dev
+R -e "install.packages('IRkernel'); IRkernel::installspec(user = TRUE)"
+
+Ubah runtime: Runtime → Change runtime type → R
+
+4. Install Paket yang Dibutuhkan
+
+%%R
+install.packages(c("tidyverse", "readxl", "lubridate"))
+
+5. Upload Data Observasi
+
+- Sidebar kiri: Folder → Upload → data.xlsx
+- Panggil data: data <- readxl::read_excel("/content/data.xlsx")
+
+6. Jalankan Semua Sel
 
 ## Tujuan Proyek
 
