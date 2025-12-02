@@ -59,6 +59,14 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
    
    Setiap parameter dianalisis untuk melihat beban sistem harian, efisiensi layanan, serta potensi bottleneck.
 
+## Diagram Alir Penelitian (Flowchart)
+
+Flowchart berikut menggambarkan tahapan analisis dari observasi hingga evaluasi hasil:
+
+![Flowchart Penelitian](https://github.com/sains-data/Stokastik_08_RC/blob/db651ba820a4d469021c795bbe354aaef22631b7/Flowchart_Stokastik_08_RC.png)
+
+
+
 ## Ringkasan Hasil Utama
 1. **Periode Siang (11.00–13.00)** — *Tidak Stabil (ρ = 1.14)*
   - λ > μ → sistem overload  
