@@ -155,16 +155,26 @@ R -e "install.packages('IRkernel'); IRkernel::installspec(user = TRUE)"
 ```
 
 Ubah runtime: Runtime → Change runtime type → R
+Jika R tidak muncul
+```bash
+%%R
+# jalankan kode R di sini
+```
 
 4. Install Paket yang Dibutuhkan
 
+```bash
 %%R
 install.packages(c("tidyverse", "readxl", "lubridate"))
+```
 
 5. Upload Data Observasi
 
 - Sidebar kiri: Folder → Upload → data.xlsx
-- Panggil data: data <- readxl::read_excel("/content/data.xlsx")
+- Panggil data:
+  ```bash
+  data <- readxl::read_excel("/content/data.xlsx")
+  ```
 
 6. Jalankan Semua Sel
 
