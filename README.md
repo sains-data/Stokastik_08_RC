@@ -1,7 +1,7 @@
 # Analisis Sistem Antrean SPBU Menggunakan Model M/M/1
 **Studi Kasus: Jalur Pertalite Mobil Bertangki Kiri – SPBU Sekitar ITERA**
 
-Repositori ini berisi analisis terkait perhitungan metrik antrian menggunakan data waktu layanan dari tiga hari observasi. Pendekatan yang digunakan adalah model antrian M/M/1 untuk melihat performa operasional berdasarkan data waktu kedatangan, waktu mulai dilayani, dan waktu selesai dilayani.
+Repositori ini berisi analisis terkait perhitungan metrik antrean menggunakan data waktu layanan dari tiga hari observasi. Pendekatan yang digunakan adalah model antrean M/M/1 untuk melihat performa operasional berdasarkan data waktu kedatangan, waktu mulai dilayani, dan waktu selesai dilayani.
 
 ## Struktur Berkas
 
@@ -9,7 +9,7 @@ Repositori ini berisi analisis terkait perhitungan metrik antrian menggunakan da
   File data utama yang berisi tiga sheet: *day_1*, *day_2*, dan *day_3*.  
   Setiap sheet memuat kolom:
   - `No`
-  - `Antrian` (waktu datang)
+  - `antrean` (waktu datang)
   - `Dilayani` (waktu mulai diproses)
   - `Selesai` (waktu layanan selesai)
 
@@ -17,7 +17,7 @@ Repositori ini berisi analisis terkait perhitungan metrik antrian menggunakan da
   Dokumen analisis dalam bentuk R. Berisi:
   - Pembersihan dan transformasi data
   - Konversi timestamp berdasarkan tanggal observasi
-  - Perhitungan metrik antrian (λ, μ, ρ, Lq, Ls, Ws, Wq)
+  - Perhitungan metrik antrean (λ, μ, ρ, Lq, Ls, Ws, Wq)
   - Interpretasi hasil setiap hari
   - Visualisasi pendukung bila diperlukan
 
@@ -40,14 +40,14 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
    - Disiplin antrean = FCFS
    - Kapasitas sistem = tak terbatas
 
-3. **Parameter dan Ukuran kinerja Sistem Antrian**
+3. **Parameter dan Ukuran kinerja Sistem Antrean**
    
    Menggunakan formula model **M/M/1** untuk menghitung:
    - Laju kedatangan pelanggan (λ)
    - Laju pelayanan (μ)
    - Utilisasi server (ρ)
    - Jumlah rata-rata pelanggan menunggu (Lq)
-   - Waktu tunggu rata-rata di antrian (Wq)
+   - Waktu tunggu rata-rata di antrean (Wq)
    - Jumlah rata-rata pelanggan dalam sistem (Ls)
    - Waktu total dalam sistem (Ws)
 
@@ -180,7 +180,7 @@ install.packages(c("tidyverse", "readxl", "lubridate"))
 
 ## Tujuan Proyek
 
-Repositori ini dibuat untuk membantu proses analisis performa antrian berdasarkan data riil, serta memberikan gambaran terkait efisiensi layanan harian dengan pendekatan model antrian klasik.
+Repositori ini dibuat untuk membantu proses analisis performa antrean berdasarkan data riil, serta memberikan gambaran terkait efisiensi layanan harian dengan pendekatan model antrean klasik.
 
 ## 👥 Tim Penyusun
 
