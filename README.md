@@ -26,7 +26,8 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
 
 ## Metodologi
 
-### **Normalisasi Waktu**
+1. **Normalisasi Waktu**
+
    Data waktu pada setiap sheet tidak memuat tanggal sehingga diberikan asumsi tanggal sebagai berikut:
    - *day_1*: 11 November 2025  
    - *day_2*: 12 November 2025  
@@ -40,6 +41,7 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
   - Kapasitas sistem = tak terbatas
 
 3. **Parameter dan Ukuran kinerja Sistem Antrian**
+   
    Menggunakan formula model **M/M/1** untuk menghitung:
    - Laju kedatangan pelanggan (λ)
    - Laju pelayanan (μ)
@@ -49,15 +51,36 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
    - Jumlah rata-rata pelanggan dalam sistem (Ls)
    - Waktu total dalam sistem (Ws)
 
-4. **Model Alternatif M/M/s**
+5. **Model Alternatif M/M/s**
 Digunakan saat sistem *overload* (ρ > 1), khususnya periode siang.
 
-5. **Interpretasi Hasil**
+6. **Interpretasi Hasil**
    Setiap parameter dianalisis untuk melihat beban sistem harian, efisiensi layanan, serta potensi bottleneck.
 
 ## Ringkasan Hasil Utama
+1. **Periode Siang (11.00–13.00)** — *Tidak Stabil (ρ = 1.14)*
+  - λ > μ → sistem overload  
+  - Parameter Ls, Lq, Ws, Wq tidak valid (negatif)  
+  - Antrean panjang tidak terhindarkan
 
+2. **Periode Pagi (07.30–09.30)** — *Stabil (ρ = 0.79)*
+  - Antrean terbentuk namun masih manageable  
+  - Waktu tunggu rata-rata ± 8 menit
+  
+3. **Periode Sore (16.00–18.00)** — *Sangat Stabil (ρ = 0.28)*
+   - Secara teori tidak terjadi antrean  
+  - Namun antrean fisik tetap terlihat akibat gangguan jalur motor (blockage)
+    
+4. **Perbandingan Model Multi-Server**
+  - **M/M/2**: Waktu tunggu turun drastis  
+  - **M/M/3–4**: Peningkatan kecil, tidak sebanding dengan biaya  
+  - **Rekomendasi** → Tambahkan *1 server* pada jam puncak siang hari 
 
+## Kesimpulan
+  - Model **M/M/1** efektif untuk pagi dan sore, tetapi **gagal di periode siang**.  
+  - Sistem terbukti **overload** pada jam 11.00–13.00 (ρ > 1).  
+  - Penambahan **1 server** sudah cukup untuk menstabilkan sistem.  
+  - Faktor eksternal seperti jalur motor perlu dipertimbangkan karena tidak tercakup dalam model klasik.
 
 ## Cara Menjalankan
 
@@ -75,6 +98,22 @@ Digunakan saat sistem *overload* (ρ > 1), khususnya periode siang.
 
 Repositori ini dibuat untuk membantu proses analisis performa antrian berdasarkan data riil, serta memberikan gambaran terkait efisiensi layanan harian dengan pendekatan model antrian klasik.
 
+## 👥 Tim Penyusun
+
+| Nama | NIM |
+|------|------|
+| Elok Fiola | 122450051 |
+| Oktavia Nurwenda Puspita S | 122450041 |
+| Feryadi Yulius | 122450087 |
+| Nawwaf Abdurrahman | 122450018 |
+
+Program Studi Sains Data — Fakultas Sains  
+Institut Teknologi Sumatera (ITERA), 2025
+
 ## Lisensi
 
 Proyek ini dirilis menggunakan lisensi bebas sesuai kebutuhan pemilik repositori.
+
+## Kontribusi
+Pull request, penambahan fitur, dan diskusi sangat dipersilakan.  
+Silakan buat *issue* untuk mengusulkan ide atau perbaikan.
