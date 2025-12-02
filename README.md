@@ -65,11 +65,52 @@ Flowchart berikut menggambarkan tahapan analisis dari observasi hingga evaluasi 
 
 ![Flowchart Penelitian](https://github.com/sains-data/Stokastik_08_RC/blob/db651ba820a4d469021c795bbe354aaef22631b7/Flowchart_Stokastik_08_RC.png)
 
+Berikut penjelasan ringkas tahapan dalam diagram alir penelitian:
 
+### **1. Observasi Lapangan**  
+Pengamatan langsung dilakukan pada jalur pengisian Pertalite mobil untuk mencatat waktu kedatangan, mulai pelayanan, dan selesai pelayanan.
+
+### **2. Input Data Observasi**  
+Data dimasukkan ke format pengolahan seperti Excel atau R.
+
+### **3. Validasi Data**  
+Pemeriksaan dilakukan untuk memastikan data tidak mengandung duplikasi atau kesalahan.
+
+### **4. Koreksi Data (Jika Diperlukan)**  
+Jika ada ketidaksesuaian, data diperbaiki terlebih dahulu sebelum analisis dilanjutkan.
+
+### **5. Pra-proses Data**  
+Meliputi konversi waktu ke detik, perhitungan waktu antar-kedatangan, serta waktu pelayanan.
+
+### **6. Hitung Parameter Sistem Antrean**  
+Menghitung parameter dasar seperti laju kedatangan (λ) dan laju pelayanan (μ).
+
+### **7. Uji Stabilitas Sistem (ρ)**  
+Menghitung tingkat utilisasi (ρ = λ/μ) untuk menentukan apakah sistem stabil (ρ < 1) atau overload (ρ > 1).
+
+### **8. Hitung Ukuran Kinerja Sistem**  
+Jika sistem stabil, ukuran seperti Ls, Lq, Ws, dan Wq dihitung.
+
+### **9. Evaluasi Hasil per Periode Waktu**  
+Perbandingan dilakukan antara periode pagi, siang, dan sore untuk mengidentifikasi waktu paling kritis.
+
+### **10. Apakah Diperlukan Simulasi Alternatif?**  
+Jika ditemukan kondisi tidak stabil, maka digunakan model alternatif.
+
+### **11. Perbandingan Model M/M/s**  
+Evaluasi dampak penambahan server (2, 3, atau 4 server) terhadap antrean.
+
+### **12. Hasil Akhir & Interpretasi**  
+Semua temuan dianalisis dan digunakan sebagai dasar rekomendasi operasional SPBU.
+
+### **13. Selesai**  
+Proses penelitian berakhir setelah seluruh tahapan tuntas.
+
+---
 
 ## Ringkasan Hasil Utama
 1. **Periode Siang (11.00–13.00)** — *Tidak Stabil (ρ = 1.14)*
-  - λ > μ → sistem overload  
+  - λ > μ → sistem overload  dan ρ > 1
   - Parameter Ls, Lq, Ws, Wq tidak valid (negatif)  
   - Antrean panjang tidak terhindarkan
 
