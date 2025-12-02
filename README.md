@@ -51,12 +51,10 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
    - Jumlah rata-rata pelanggan dalam sistem (Ls)
    - Waktu total dalam sistem (Ws)
 
-5. **Model Alternatif M/M/s**
-   
-Digunakan saat sistem *overload* (ρ > 1), khususnya periode siang.
+4. **Model Alternatif M/M/s**
+   Digunakan saat sistem *overload* (ρ > 1), khususnya periode siang.
 
-6. **Interpretasi Hasil**
-   
+5. **Interpretasi Hasil**
    Setiap parameter dianalisis untuk melihat beban sistem harian, efisiensi layanan, serta potensi bottleneck.
 
 ## Ringkasan Hasil Utama
