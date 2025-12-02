@@ -34,11 +34,11 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
    - *day_3*: 13 November 2025  
 
 2. **Asumsi utama**
-   - Kedatangan ~ Poisson  
-  - Pelayanan ~ Eksponensial  
-  - Server = 1  
-  - Disiplin antrean = FCFS  
-  - Kapasitas sistem = tak terbatas
+   - Kedatangan ~ Poisson
+   - Pelayanan ~ Eksponensial
+   - Server = 1
+   - Disiplin antrean = FCFS
+   - Kapasitas sistem = tak terbatas
 
 3. **Parameter dan Ukuran kinerja Sistem Antrian**
    
@@ -52,9 +52,11 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
    - Waktu total dalam sistem (Ws)
 
 5. **Model Alternatif M/M/s**
+   
 Digunakan saat sistem *overload* (ρ > 1), khususnya periode siang.
 
 6. **Interpretasi Hasil**
+   
    Setiap parameter dianalisis untuk melihat beban sistem harian, efisiensi layanan, serta potensi bottleneck.
 
 ## Ringkasan Hasil Utama
@@ -64,12 +66,12 @@ Digunakan saat sistem *overload* (ρ > 1), khususnya periode siang.
   - Antrean panjang tidak terhindarkan
 
 2. **Periode Pagi (07.30–09.30)** — *Stabil (ρ = 0.79)*
-  - Antrean terbentuk namun masih manageable  
+  - Antrean terbentuk namun masih manageable
   - Waktu tunggu rata-rata ± 8 menit
   
 3. **Periode Sore (16.00–18.00)** — *Sangat Stabil (ρ = 0.28)*
-   - Secara teori tidak terjadi antrean  
-  - Namun antrean fisik tetap terlihat akibat gangguan jalur motor (blockage)
+   - Secara teori tidak terjadi antrean
+   - Namun antrean fisik tetap terlihat akibat gangguan jalur motor (blockage)
     
 4. **Perbandingan Model Multi-Server**
   - **M/M/2**: Waktu tunggu turun drastis  
@@ -77,9 +79,9 @@ Digunakan saat sistem *overload* (ρ > 1), khususnya periode siang.
   - **Rekomendasi** → Tambahkan *1 server* pada jam puncak siang hari 
 
 ## Kesimpulan
-  - Model **M/M/1** efektif untuk pagi dan sore, tetapi **gagal di periode siang**.  
-  - Sistem terbukti **overload** pada jam 11.00–13.00 (ρ > 1).  
-  - Penambahan **1 server** sudah cukup untuk menstabilkan sistem.  
+  - Model **M/M/1** efektif untuk pagi dan sore, tetapi **gagal di periode siang**.
+  - Sistem terbukti **overload** pada jam 11.00–13.00 (ρ > 1).
+  - Penambahan **1 server** sudah cukup untuk menstabilkan sistem.
   - Faktor eksternal seperti jalur motor perlu dipertimbangkan karena tidak tercakup dalam model klasik.
 
 ## Cara Menjalankan
