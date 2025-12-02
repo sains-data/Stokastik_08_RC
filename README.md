@@ -1,4 +1,5 @@
-# Analisis Waktu Antrian dengan R (M/M/1 Queueing Model)
+# Analisis Sistem Antrean SPBU Menggunakan Model M/M/1
+**Studi Kasus: Jalur Pertalite Mobil Bertangki Kiri – SPBU Sekitar ITERA**
 
 Repositori ini berisi analisis terkait perhitungan metrik antrian menggunakan data waktu layanan dari tiga hari observasi. Pendekatan yang digunakan adalah model antrian M/M/1 untuk melihat performa operasional berdasarkan data waktu kedatangan, waktu mulai dilayani, dan waktu selesai dilayani.
 
@@ -20,6 +21,9 @@ Repositori ini berisi analisis terkait perhitungan metrik antrian menggunakan da
   - Interpretasi hasil setiap hari
   - Visualisasi pendukung bila diperlukan
 
+## Latar Belakang Singkat
+Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumlah kendaraan yang mengisi bahan bakar di SPBU. Pada jalur Pertalite mobil bertangki kiri, antrean sering kali mengular terutama pada jam-jam tertentu. Analisis antrean diperlukan untuk memahami apakah kapasitas pelayanan saat ini sudah memadai atau perlu ditingkatkan. Model **M/M/1** digunakan karena sesuai dengan kondisi lapangan: *satu jalur antrean dan satu nozzle aktif*.
+
 ## Metodologi
 
 1. **Normalisasi Waktu**
@@ -28,18 +32,32 @@ Repositori ini berisi analisis terkait perhitungan metrik antrian menggunakan da
    - *day_2*: 12 November 2025  
    - *day_3*: 13 November 2025  
 
-2. **Perhitungan Metrik Antrian**
+2. **Asumsi utama**
+   - Kedatangan ~ Poisson  
+  - Pelayanan ~ Eksponensial  
+  - Server = 1  
+  - Disiplin antrean = FCFS  
+  - Kapasitas sistem = tak terbatas
+
+3. **Parameter dan Ukuran kinerja Sistem Antrian**
    Menggunakan formula model **M/M/1** untuk menghitung:
-   - Tingkat kedatangan pelanggan (λ)
-   - Tingkat pelayanan (μ)
+   - Laju kedatangan pelanggan (λ)
+   - Laju pelayanan (μ)
    - Utilisasi server (ρ)
    - Jumlah rata-rata pelanggan menunggu (Lq)
    - Waktu tunggu rata-rata di antrian (Wq)
-   - Waktu total dalam sistem (W)
-   - Jumlah rata-rata pelanggan dalam sistem (L)
+   - Jumlah rata-rata pelanggan dalam sistem (Ls)
+   - Waktu total dalam sistem (Ws)
 
-3. **Interpretasi Hasil**
+4. **Model Alternatif M/M/s**
+Digunakan saat sistem *overload* (ρ > 1), khususnya periode siang.
+
+5. **Interpretasi Hasil**
    Setiap parameter dianalisis untuk melihat beban sistem harian, efisiensi layanan, serta potensi bottleneck.
+
+## Ringkasan Hasil Utama
+
+
 
 ## Cara Menjalankan
 
