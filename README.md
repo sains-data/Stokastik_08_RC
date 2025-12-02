@@ -52,9 +52,11 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
    - Waktu total dalam sistem (Ws)
 
 4. **Model Alternatif M/M/s**
+   
    Digunakan saat sistem *overload* (ρ > 1), khususnya periode siang.
 
 5. **Interpretasi Hasil**
+   
    Setiap parameter dianalisis untuk melihat beban sistem harian, efisiensi layanan, serta potensi bottleneck.
 
 ## Ringkasan Hasil Utama
@@ -68,9 +70,9 @@ Peningkatan mobilitas masyarakat di sekitar ITERA menyebabkan bertambahnya jumla
   - Waktu tunggu rata-rata ± 8 menit
   
 3. **Periode Sore (16.00–18.00)** — *Sangat Stabil (ρ = 0.28)*
-   - Secara teori tidak terjadi antrean
-   - Namun antrean fisik tetap terlihat akibat gangguan jalur motor (blockage)
-    
+  - Secara teori tidak terjadi antrean
+  - Namun antrean fisik tetap terlihat akibat gangguan jalur motor (blockage)
+  
 4. **Perbandingan Model Multi-Server**
   - **M/M/2**: Waktu tunggu turun drastis  
   - **M/M/3–4**: Peningkatan kecil, tidak sebanding dengan biaya  
