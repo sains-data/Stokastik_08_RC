@@ -1,3 +1,11 @@
+![Platform](https://img.shields.io/badge/Platform-Google%20Colab-blue?style=flat-square&logo=googlecolab)
+![Language](https://img.shields.io/badge/Language-R-blueviolet?style=flat-square&logo=r)
+![Model](https://img.shields.io/badge/Model-M%2FM%2F1%20%7C%20M%2FM%2Fs-orange?style=flat-square)
+![Method](https://img.shields.io/badge/Method-Stochastic%20Modeling-yellow?style=flat-square)
+![Tool](https://img.shields.io/badge/Tool-RStudio%20%7C%20Colab-green?style=flat-square&logo=rstudio)
+![Data](https://img.shields.io/badge/Data-Observational-lightgrey?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=flat-square)
+
 # Analisis Sistem Antrean SPBU Menggunakan Model M/M/1
 **Studi Kasus: Jalur Pertalite Mobil Bertangki Kiri – SPBU Sekitar ITERA**
 
